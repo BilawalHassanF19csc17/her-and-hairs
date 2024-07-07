@@ -57,7 +57,7 @@ const Inventory = () => {
             countInventory();
             countShipped();
         }
-    }, [inventorydata])
+    }, [])
 
     useEffect(() => {
         fetchInventory();
