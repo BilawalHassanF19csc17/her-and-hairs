@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import NavbarEmp from '@/components/navbarEmp';
 import Footer from '@/components/footer';
 
-const shipped = () => {
+const Shipped = () => {
     const router = useRouter();
     const [salesshipped, setSalesshipped] = useState([]);
     const [saleRender, setSaleRender] = useState(true)
@@ -226,4 +226,4 @@ const shipped = () => {
     )
 }
 
-export default shipped
+export default Shipped
