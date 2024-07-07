@@ -5,7 +5,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 
 
-const inventory = () => {
+const Inventory = () => {
     const [inventorydata, setInventorydata] = useState([]);
     const [message, setMessage] = useState('');
     const [selectedSales, setSelectedSales] = useState([])
@@ -157,4 +157,4 @@ const inventory = () => {
     )
 }
 
-export default inventory
+export default Inventory

@@ -5,7 +5,7 @@ import Navbar from '../../components/navbar';
 import { useState } from 'react';
 import Footer from '@/components/footer';
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const [sales, setSales] = useState([]);
   const [salesshipped, setSalesshipped] = useState([]);
@@ -198,4 +198,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

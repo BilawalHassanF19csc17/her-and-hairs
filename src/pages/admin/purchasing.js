@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
-const purchasing = () => {
+const Purchasing = () => {
     const [purchasedDetials, setPurchasedDetails] = useState([]);
     const [message, setMessage] = useState('');
     const [selectedSales, setSelectedSales] = useState([])
@@ -145,4 +145,4 @@ const purchasing = () => {
     )
 }
 
-export default purchasing
+export default Purchasing

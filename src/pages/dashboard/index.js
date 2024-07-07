@@ -5,7 +5,7 @@ import { useState } from 'react';
 import NavbarEmp from '@/components/navbarEmp';
 import Footer from '@/components/footer';
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const [sales, setSales] = useState([]);
   const [saleRender, setSaleRender] = useState(true)
@@ -239,4 +239,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

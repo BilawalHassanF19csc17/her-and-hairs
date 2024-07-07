@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import NavbarEmp from '@/components/navbarEmp';
 import Footer from '@/components/footer';
 
-const inventory = () => {
+const Inventory = () => {
     const [inventory, setInventory] = useState('');
     const [inventorydata, setInventorydata] = useState([]);
     const [shippedSales, setShippedSales] = useState([]);
@@ -137,4 +137,4 @@ const inventory = () => {
     )
 }
 
-export default inventory
+export default Inventory
