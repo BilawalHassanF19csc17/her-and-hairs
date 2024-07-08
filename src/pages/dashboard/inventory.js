@@ -11,6 +11,7 @@ const Inventory = () => {
     const [message, setMessage] = useState('');
     const [inventoryCount, setInventoryCount] = useState();
     const [shippedCount, setShippedCount] = useState();
+    const [inventoryLeft, setInventoryLeft] = useState(0);
     const router = useRouter();
 
     const fetchInventory = async () => {
@@ -56,14 +57,13 @@ const Inventory = () => {
     }
 
     const countShipped = () =>{
+        console.log(shippedSales.length);
         let count = 0;
         for (let i = 0; i < shippedSales.length; i++) {
             count = count + shippedSales[i].quantity;     
         }
         setShippedCount(count);
     }
-
-    const InventoryLeft = inventoryCount-shippedCount;
 
     const addInventory = async (e) => {
         e.preventDefault();
@@ -87,7 +87,12 @@ const Inventory = () => {
             countInventory();
             countShipped();
         }
-    }, [])
+    }, [inventorydata, shippedSales])
+
+    setTimeout(() => {
+        let InventoryLeft = inventoryCount-shippedCount;
+        setInventoryLeft(InventoryLeft);
+    }, 3000);
 
     useEffect(() => {
         fetchInventory();
@@ -116,7 +121,7 @@ const Inventory = () => {
                     <ul className="shadow-2xl backdrop-blur-[10px] bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
                         <div className='flex justify-end'>
                             <div className='text-white bg-[#886262] rounded-[15px] m-[20px] px-[10px] text-[20px]'>
-                            <p>Inventory left: {InventoryLeft}</p>
+                            <p>Inventory left: {inventoryLeft}</p>
                             </div>
                         </div>
                         {inventorydata.map((data) => (

@@ -12,8 +12,9 @@ const Inventory = () => {
     const [shippedSales, setShippedSales] = useState([]);
     const [selectedDate, setSelectedDate] = useState('');
     const [saleRender, setSaleRender] = useState(false)
-    const [inventoryCount, setInventoryCount] = useState();
-    const [shippedCount, setShippedCount] = useState();
+    const [inventoryCount, setInventoryCount] = useState(0);
+    const [shippedCount, setShippedCount] = useState(0);
+    const [inventoryLeft, setInventoryLeft] = useState(0);
     const router = useRouter();
 
     const fetchInventory = async () => {
@@ -52,12 +53,7 @@ const Inventory = () => {
         }
     }
 
-    useEffect(() => {
-        if (inventorydata.length > 0) {
-            countInventory();
-            countShipped();
-        }
-    }, [])
+    
 
     useEffect(() => {
         fetchInventory();
@@ -86,6 +82,7 @@ const Inventory = () => {
         for (let i = 0; i < inventorydata.length; i++) {
             count = count + inventorydata[i].bottle;
         }
+        console.log(count);
         setInventoryCount(count)
     }
 
@@ -94,10 +91,27 @@ const Inventory = () => {
         for (let i = 0; i < shippedSales.length; i++) {
             count = count + shippedSales[i].quantity;     
         }
+        console.log(count);
         setShippedCount(count);
     }
 
-    const InventoryLeft = inventoryCount-shippedCount;
+    useEffect(() => {
+        if (inventorydata.length > 0) {
+            countInventory();
+            countShipped();
+        }
+    }, [inventorydata, shippedSales])
+    
+    setTimeout(() => {
+        let InventoryLeft = inventoryCount-shippedCount;
+        setInventoryLeft(InventoryLeft);
+    }, 3000);
+
+    // useEffect(()=>{
+    //     let InventoryLeft = inventoryCount-shippedCount;
+    //     setInventoryLeft(InventoryLeft);
+    // },[inventoryCount, shippedCount])
+
     return (
         <>
             <style jsx>
@@ -136,7 +150,7 @@ const Inventory = () => {
                     {!saleRender && <ul className="shadow-2xl blurred-background bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
                         <div className='flex justify-end'>
                             <div className='text-white bg-[#886262] rounded-[15px] m-[20px] px-[10px] text-[20px]'>
-                                <p>Inventory left:{InventoryLeft} </p> 
+                                <p>Inventory left:{inventoryLeft} </p>
                             </div>
                         </div>
                         {inventorydata.map((data) => (
