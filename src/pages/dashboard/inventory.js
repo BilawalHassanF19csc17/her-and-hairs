@@ -57,7 +57,6 @@ const Inventory = () => {
     }
 
     const countShipped = () =>{
-        console.log(shippedSales.length);
         let count = 0;
         for (let i = 0; i < shippedSales.length; i++) {
             count = count + shippedSales[i].quantity;     

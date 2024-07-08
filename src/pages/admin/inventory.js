@@ -82,7 +82,6 @@ const Inventory = () => {
         for (let i = 0; i < inventorydata.length; i++) {
             count = count + inventorydata[i].bottle;
         }
-        console.log(count);
         setInventoryCount(count)
     }
 
@@ -91,7 +90,6 @@ const Inventory = () => {
         for (let i = 0; i < shippedSales.length; i++) {
             count = count + shippedSales[i].quantity;     
         }
-        console.log(count);
         setShippedCount(count);
     }
 
