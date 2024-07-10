@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Logout from './logout';
+import Loader from './loader';
 
 const NavbarEmp = () => {
   return (
@@ -36,6 +37,7 @@ const NavbarEmp = () => {
         </div>
       </div>
     </nav>
+    <Loader/>
     </>
   );
 }

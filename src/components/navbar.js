@@ -6,6 +6,7 @@ import PurchasingCost from '@/components/purchasingCost'
 import Image from 'next/image'
 import { useState } from 'react';
 import UpdatePassword from './updatePassword';
+import Loader from './loader';
 
 
 const Navbar = () => {
@@ -83,6 +84,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    <Loader/>
       <div className='relative mt-[0px] lg:mt-[0px]'>
         <div id="childDiv" className={`w-[430px] absolute ${active ? 'active': ' '} child z-20 blurred-background  lg:bg-opacity-20 p-4 mb-4 rounded-[10px] border-[1px] border-black overflow-y-auto  max-h-[600px] lg:max-h-[680px] no-scrollbar `}>
           <div className='flex justify-center py-[30px] flex-col'>

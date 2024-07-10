@@ -1,15 +1,18 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Image from "next/image";
+import Loader from "@/components/loader";
 
 export default function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const router = useRouter();
+  let loader = true;
 
   const login = async (e) => {
     e.preventDefault();
+    loader = true;
     const lowercasedEmail = email.toLowerCase();
     const response = await fetch('/api/auth/signin', {
       method: 'POST',
@@ -54,6 +57,7 @@ export default function Home() {
         </div>
         </div>
         <form className="lg:w-[340px] signin bg-[#DBB5B5] w-[90%] my-[100px] py-10 rounded-[10px] shadow-2xl blurred-background bg-opacity-20 p-4 mb-4" onSubmit={login}>
+        {loader && <Loader/>}
           <div className="logo flex justify-center w-[100%] lg:w-[100%]">
           <Image src="/image-removebg-preview.png" width={150} height={150} alt="logo" />
         </div>
