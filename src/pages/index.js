@@ -7,12 +7,12 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [loader, setLoader] = useState(false);
   const router = useRouter();
-  let loader = true;
 
   const login = async (e) => {
     e.preventDefault();
-    loader = true;
+    setLoader(true);
     const lowercasedEmail = email.toLowerCase();
     const response = await fetch('/api/auth/signin', {
       method: 'POST',
