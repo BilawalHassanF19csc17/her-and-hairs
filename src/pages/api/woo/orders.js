@@ -7,7 +7,6 @@ export default async function handler(req, res){
 
      if(req.method === 'GET'){
         const Orders = await fetchOrder();
-        console.log(Orders);
 
         for (let i = 0; i < Orders.length; i++) {
             let order = Orders[i];
