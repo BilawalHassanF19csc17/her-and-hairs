@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Loader from "@/components/loader";
 
@@ -9,6 +9,15 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [loader, setLoader] = useState(false);
   const router = useRouter();
+
+  const fetchOrderWoo = async ()=>{
+    const response = await fetch('api/woo/orders');
+    console.log(response);
+  }
+
+  useEffect(()=>{
+    fetchOrderWoo();
+  },[])
 
   const login = async (e) => {
     e.preventDefault();
