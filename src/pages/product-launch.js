@@ -2,14 +2,16 @@ import Footer from '@/components/footer';
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react';
+import Loader from '@/components/loader';
 
 const Productlunch = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [countries, setCountries] = useState([]);
-    const [countryCode, setCountryCode] = useState('');
+    const [countryCode, setCountryCode] = useState('+93');
     const [message, setMessage] = useState('');
+    const [loader, setLoader] = useState(false);
 
     const fetchCountries = async () => {
         const response = await fetch('/countries.json');
@@ -19,6 +21,7 @@ const Productlunch = () => {
 
     const addCustomer = async (e) => {
         e.preventDefault();
+        setLoader(true);
         const response = await fetch('/api/customer/waiting', {
             method: 'POST',
             headers: {
@@ -52,8 +55,9 @@ const Productlunch = () => {
       `}
             </style>
             <div className='flex justify-center h-[500px] items-center'>
-                <form className=' w-[300px] lg:w-[600px] 
+                <form onSubmit={addCustomer} className=' w-[300px] lg:w-[600px] 
                 h-[400px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
+                    {loader && <Loader/>}
                     <div>
                         <p className='text-center mb-[10px] italic font-bold text-[18px] lg:text-[24px] font-serif'>
                                 Get notified for my most awaited Haircare launch<span className='text-[#886262]'>♡</span>
@@ -64,6 +68,7 @@ const Productlunch = () => {
                     </div>
                     <div className='mt-[10px] flex justify-center items-center'>
                         <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[36px]' >
+                        <option value="" disabled>🇦🇫 Afg</option>
                             {countries.map((country) => (
                                 <option key={country.code} value={country.code}>
                                     {country.name}
@@ -77,7 +82,7 @@ const Productlunch = () => {
                     </div>
                     <div className='mt-[10px]'>
                         <button className='bg-[#886262] w-[100px]
-          h-[30px] my-5 text-white rounded-[15px]'  type='submit' onClick={addCustomer}>Submit</button>
+          h-[30px] my-5 text-white rounded-[15px]'  type='submit' >Submit</button>
                     </div>
                     {message && <p className='text-center text-[12px]'>{message}</p>}
                 </form>
