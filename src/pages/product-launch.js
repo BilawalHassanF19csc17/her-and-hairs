@@ -57,7 +57,7 @@ const Productlunch = () => {
             <div className='flex justify-center h-[500px] items-center'>
                 <form onSubmit={addCustomer} className=' w-[300px] lg:w-[600px] 
                 h-[400px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
-                    {loader && <Loader/>}
+                    <Loader/>
                     <div>
                         <p className='text-center mt-[10px] mb-[10px] italic font-bold text-[18px] lg:text-[24px] font-serif'>
                                 Get notified for my most awaited Haircare launch<span className='text-[#886262]'>♡</span>
