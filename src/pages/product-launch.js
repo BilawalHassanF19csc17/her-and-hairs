@@ -59,7 +59,7 @@ const Productlunch = () => {
                 h-[400px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     {loader && <Loader/>}
                     <div>
-                        <p className='text-center mb-[10px] italic font-bold text-[18px] lg:text-[24px] font-serif'>
+                        <p className='text-center mt-[10px] mb-[10px] italic font-bold text-[18px] lg:text-[24px] font-serif'>
                                 Get notified for my most awaited Haircare launch<span className='text-[#886262]'>♡</span>
                         </p>
                     </div>
@@ -68,7 +68,6 @@ const Productlunch = () => {
                     </div>
                     <div className='mt-[10px] flex justify-center items-center'>
                         <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[36px]' >
-                        <option value="" disabled>🇦🇫 Afg</option>
                             {countries.map((country) => (
                                 <option key={country.code} value={country.code}>
                                     {country.name}
