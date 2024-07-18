@@ -41,7 +41,7 @@ const Marketing = () => {
     }
 
     const sendMail = async (e) =>{
-        setMessage('Sending Emails Please Wait Honey❤️...')
+        setMessage('Sending Emails Please Wait Honey♥️...')
         e.preventDefault();
         const response = await fetch('/api/customer/sendmail',{
             method: 'POST',
@@ -52,7 +52,7 @@ const Marketing = () => {
         })
         if(response.status === 200){
             const data = await response.json();
-            setMessage(`${data.counter} Emails are sent Successfully❤️`)
+            setMessage(`${data.counter} Emails are sent Successfully♥️`)
         } else {
             setMessage('Sorry Sweetheart could not send Emails :(')
         }
