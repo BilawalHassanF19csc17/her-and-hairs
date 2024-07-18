@@ -81,7 +81,7 @@ const Marketing = () => {
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[140px] mb-[30px]'>Customer Details</p>
                     {customers.map((customer) => (
-                        <li className='w-[100%]'>
+                        <li className='w-[100%]' key={customer.email}>
                             <div className=' flex justify-start flex-wrap lg:justify-around'>
                                 <p>Name: {customer.name}</p>
                                 <p>Email: {customer.email}</p>
