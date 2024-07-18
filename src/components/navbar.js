@@ -38,15 +38,15 @@ const Navbar = () => {
     `}
     </style>
     <nav>
-      <div className='bg-[#DBB5B5] h-[205px] lg:h-[100px] flex flex-col lg:flex-row pt-[10px] shadow-xl'>
+      <div className='bg-[#DBB5B5] h-[235px] lg:h-[100px] flex flex-col lg:flex-row pt-[10px] shadow-xl'>
         <div className="logo w-[100%] lg:w-[10%] flex justify-center lg:justify-center items-center">
           <Link href='/admin/'>
             <Image className='w-[100px]' src="/image-removebg-preview.png" width={200} height={50} alt='logo' />
           </Link>
         </div>
         <div className="menu w-[100%] lg:w-[80%] flex justify-center lg:justify-center items-center py-[10px]">
-          <div className='bg-[#886262] p-[5px] rounded-[20px] text-white'>
-            <ul className='flex'>
+          <div className='bg-[#886262] p-[5px] rounded-[20px] text-white w-[383px] md:w-[450px]'>
+            <ul className='flex flex-wrap justify-center'>
               <Link href="/admin/">
                 <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#F1E5D1]'>Sales</li>
               </Link>
@@ -58,6 +58,9 @@ const Navbar = () => {
               </Link>
               <Link href="/admin/finance">
                 <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#F1E5D1]'>Finance</li>
+              </Link>
+              <Link href="/admin/marketing">
+                <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#F1E5D1]'>Marketing</li>
               </Link>
             </ul>
           </div>

@@ -109,7 +109,7 @@ const Index = () => {
       <Navbar />
       <div>
         <div className='flex justify-center'>
-          <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[200px] flex'>
+          <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[200px] flex p-[3px]'>
             <button onClick={pendingOrder} className={`${tabs === 'pending' ? 'bg-[#886262] text-white' : ''} w-[50%] p-[5px] rounded-[30px]`}>Pending</button>
             <button onClick={shippedOrder} className={`${tabs === 'shipped' ? 'bg-[#886262] text-white' : ''} w-[50%] p-[5px] rounded-[30px]`}>Shipped</button> 
           </div>

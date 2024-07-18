@@ -22,7 +22,14 @@ export default async function handler(req, res){
 
         await customer.save();
         res.status(200).json({message: "Record Added"});
-    } else {
+    } else if(req.method === 'GET'){
+        const customers = await Customer.find();
+        if(customers.length === 0){
+            res.status(400).end();
+        }
+        res.status(200).json(customers);
+    }
+        else {
         res.status(500).end();
     }
 }
