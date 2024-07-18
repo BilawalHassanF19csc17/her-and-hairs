@@ -52,6 +52,31 @@ const Productlunch = () => {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px); /* Safari */
       }
+      select {
+        -webkit-appearance: none; /* Remove default styling */
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0; /* Make the select square */
+    }
+
+    .select-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .select-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #000;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
       `}
             </style>
             <div className='flex justify-center h-[500px] items-center'>
@@ -65,7 +90,7 @@ const Productlunch = () => {
                     </div>
                     <div className='mt-[10px]'>
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] lg:w-[500px] h-[40px] text-center' type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required />
-                    </div>
+                    </div>  
                     <div className='mt-[10px] flex justify-center items-center'>
                         <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[36px]' >
                             {countries.map((country) => (
@@ -74,7 +99,7 @@ const Productlunch = () => {
                                 </option>
                             ))}
                         </select>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[170px] lg:w-[420px] h-[40px] text-center' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[184px] lg:w-[438px] h-[40px] text-center' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                     </div>
                     <div className='mt-[10px]'>
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] lg:w-[500px] text-center' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
