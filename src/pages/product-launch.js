@@ -56,7 +56,6 @@ const Productlunch = () => {
         -webkit-appearance: none; /* Remove default styling */
         -moz-appearance: none;
         appearance: none;
-        border-radius: 0; /* Make the select square */
     }
 
     .select-wrapper {
