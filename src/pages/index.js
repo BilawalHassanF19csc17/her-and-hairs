@@ -65,7 +65,7 @@ export default function Home() {
           </p>
         </div>
         </div>
-        <form className="lg:w-[340px] signin bg-[#DBB5B5] w-[90%] my-[100px] py-10 rounded-[10px] shadow-2xl blurred-background bg-opacity-20 p-4 mb-4" onSubmit={login}>
+        <form className="lg:w-[340px] signin bg-[#f8f3eb] w-[90%] my-[100px] py-10 rounded-[10px] shadow-2xl blurred-background bg-opacity-20 p-4 mb-4" onSubmit={login}>
         {loader && <Loader/>}
           <div className="logo flex justify-center w-[100%] lg:w-[100%]">
           <Image src="/image-removebg-preview.png" width={150} height={150} alt="logo" />
@@ -77,8 +77,8 @@ export default function Home() {
             <input className=" text-center border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px]" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
           </div>
           <div className="flex justify-center">
-            <button className="bg-[#886262] w-[100px]
-          h-[30px] my-5 text-white rounded-[15px]" type="submit">Login
+            <button className="bg-[#e4e4e4] w-[100px]
+          h-[30px] my-5 text-black rounded-[15px]" type="submit">Login
 
             </button>
           </div>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    background-image:url('/Untitled-design.png') ;
+    background-image: url('/Untitleddesign.png');
     background-size: cover;
     background-attachment: fixed;
     z-index: 0;

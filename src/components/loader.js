@@ -27,7 +27,7 @@ const Loader = () => {
       }
      }
     `}</style>
-    <div className='loader relative bg-[#886262] h-[2px]'></div>
+    <div className='loader relative bg-[#000000] h-[1px]'></div>
     </>
   )
 }
