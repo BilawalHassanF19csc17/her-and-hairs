@@ -83,12 +83,12 @@ const Productlunch = () => {
                 h-[400px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     {loader&&<Loader/>}
                     <div>
-                        <p className='text-center mt-[10px] mb-[10px] italic font-bold text-[18px] lg:text-[24px] font-serif'>
+                        <p className='text-center mt-[10px] mb-[10px] italic text-[18px] lg:text-[28px] font-serif'>
                                 Get notified for my most awaited Haircare launch<span className='text-[#886262]'>♡</span>
                         </p>
                     </div>
                     <div className='mt-[10px]'>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] lg:w-[500px] h-[40px] text-center' type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] lg:w-[500px] h-[40px] pl-[10px]' type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required />
                     </div>  
                     <div className='mt-[10px] flex justify-center items-center'>
                         <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[36px]' >
@@ -98,10 +98,10 @@ const Productlunch = () => {
                                 </option>
                             ))}
                         </select>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[184px] lg:w-[438px] h-[40px] text-center' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[184px] lg:w-[438px] h-[40px] pl-[10px]' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                     </div>
                     <div className='mt-[10px]'>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] lg:w-[500px] text-center' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] lg:w-[500px] pl-[10px]' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className='mt-[10px]'>
                         <button className='bg-[#e4e4e4] w-[100px]
