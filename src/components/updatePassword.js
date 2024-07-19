@@ -49,8 +49,8 @@ const UpdatePassword = () => {
                     <div>
                         <input className="border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] text-center" type='password' placeholder='Re-Enter Password' value={repassword} onChange={(e) => setRepassword(e.target.value)} />
                     </div>
-                    <div className="flex justify-center"><button className="bg-[#886262] w-[100px]
-          h-[30px] my-5 text-white rounded-[15px]" type='submit'>Update</button></div>
+                    <div className="flex justify-center"><button className="bg-[#e4e4e4] w-[100px]
+          h-[30px] my-5 text-black rounded-[15px]" type='submit'>Update</button></div>
                 </form>
             </div>
             <div className="mx-[30px]">{message && <p className="text-slate-600 text-center text-[12px] mb-[20px]">{message}</p>}</div>

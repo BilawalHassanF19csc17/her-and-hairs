@@ -72,24 +72,24 @@ const Purchasing = () => {
             <Navbar />
             <div>
                 <div className="flex justify-center">
-                    {message && <p className="text-white rounded-[20px] w-[300px] bg-red-500 text-[28px] text-center mt-[40px] ">{message}</p>}
+                    {message && <p className="text-black rounded-[20px] w-[300px] bg-red-500 text-[28px] text-center mt-[40px] ">{message}</p>}
                 </div>
                 <div>
                     <div className='flex justify-center items-center mt-[30px]'>
                         <input className='rounded-[20px] p-[3px]' type='date' value={selectedDate} onChange={selectDate} />
-                        <button className='rounded-[15px] ml-[5px] px-[3px] text-white bg-[#886262] text-[15px] w-[70px] ' onClick={() => setSaleRender(false)}>Cancel</button>
+                        <button className='rounded-[15px] ml-[5px] px-[3px] text-black bg-[#e4e4e4] text-[15px] w-[70px] ' onClick={() => setSaleRender(false)}>Cancel</button>
                     </div>
                 </div>
                 {saleRender && <ul className="shadow-2xl backdrop-blur-[10px] bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
-                <p className="my-[10px] text-center bg-[#886262] rounded-[15px] text-white w-[105px] mx-auto">{selectedDate}</p>
+                <p className="my-[10px] text-center bg-[#f8f3eb] rounded-[15px] text-black w-[105px] mx-auto">{selectedDate}</p>
                     {selectedSales.map((data) => (
                         <li key={data._id} className="px-[10px]">
-                            <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[400px]">
+                            <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                                 <p>{data.formattedCreatedAt}</p>
                             </div>
                             <div className=" flex mb-[10px] justify-around ">
                                 <div className=' mx-[2px]'>
-                                    <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[200px]">
+                                    <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[200px]">
                                         <p>Purchasings</p>
                                     </div>
                                     <p>Oil quanity: {data.oil}Ltr</p>
@@ -100,7 +100,7 @@ const Purchasing = () => {
                                     <p > cost: {data.packagingprice}Rs</p>
                                 </div>
                                 <div className=' mx-[2px]'>
-                                    <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[200px]">
+                                    <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[200px]">
                                         <p>Total Spending</p>
                                     </div>
                                     <p>Total Amount: {data.total}Rs</p>
@@ -113,12 +113,12 @@ const Purchasing = () => {
                 {!saleRender && <ul className="shadow-2xl backdrop-blur-[10px] bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
                     {purchasedDetials.map((data) => (
                         <li key={data._id} className="px-[10px]">
-                            <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[400px]">
+                            <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                                 <p>{data.formattedCreatedAt}</p>
                             </div>
                             <div className=" flex mb-[10px] justify-around ">
                                 <div className=' mx-[2px]'>
-                                    <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[200px]">
+                                    <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[200px]">
                                         <p>Purchasings</p>
                                     </div>
                                     <p>Oil quanity: {data.oil}Ltr</p>
@@ -129,7 +129,7 @@ const Purchasing = () => {
                                     <p > cost: {data.packagingprice}Rs</p>
                                 </div>
                                 <div className=' mx-[2px]'>
-                                    <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[200px]">
+                                    <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[200px]">
                                         <p>Total Spending</p>
                                     </div>
                                     <p>Total Amount: {data.total}Rs</p>

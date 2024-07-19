@@ -104,8 +104,8 @@ const Productlunch = () => {
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] lg:w-[500px] text-center' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className='mt-[10px]'>
-                        <button className='bg-[#886262] w-[100px]
-          h-[30px] my-5 text-white rounded-[15px]'  type='submit' >Submit</button>
+                        <button className='bg-[#e4e4e4] w-[100px]
+          h-[30px] my-5 text-black rounded-[15px]'  type='submit' >Submit</button>
                     </div>
                     {message && <p className='text-center text-[12px]'>{message}</p>}
                 </form>

@@ -110,8 +110,8 @@ const Index = () => {
       <div>
         <div className='flex justify-center'>
           <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[200px] flex p-[3px]'>
-            <button onClick={pendingOrder} className={`${tabs === 'pending' ? 'bg-[#886262] text-white' : ''} w-[50%] p-[5px] rounded-[30px]`}>Pending</button>
-            <button onClick={shippedOrder} className={`${tabs === 'shipped' ? 'bg-[#886262] text-white' : ''} w-[50%] p-[5px] rounded-[30px]`}>Shipped</button> 
+            <button onClick={pendingOrder} className={`${tabs === 'pending' ? 'bg-[#e4e4e4] text-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Pending</button>
+            <button onClick={shippedOrder} className={`${tabs === 'shipped' ? 'bg-[#e4e4e4] text-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Shipped</button> 
           </div>
         </div>
         {tabs === 'pending' && (
@@ -119,12 +119,12 @@ const Index = () => {
             {messageP && <p className='text-center'>{messageP}</p>}
             {sales.map((data) => (
               <li className="px-[10px] mb-[55px]" key={data.id}>
-                <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[400px]">
+                <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                   <p>{data.formattedCreatedAt}</p>
                 </div>
                 <div className='flex flex-col lg:flex-row justify-around lg:mt-[40px]'>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[112px] mb-[10px]'>Order Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[112px] mb-[10px]'>Order Details</p>
                     <p>Order No: {data.id}</p>
                     <p>Total: {data.total}</p>
                     <p>Quantity: {data.quantity}</p>
@@ -132,7 +132,7 @@ const Index = () => {
                   </div>
                   <div className='border-b-black border-b-[0.1px] pb-[10px] mb-[15px] lg:border-l-black lg:border-l-[0.1px]'></div>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[145px] mb-[10px]'>Customer Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[145px] mb-[10px]'>Customer Details</p>
                     <p>Customer: {data.customer}</p>
                     <p>Address: {data.address}</p>
                     <p>City: {data.city}</p>
@@ -142,11 +142,11 @@ const Index = () => {
                   </div>
                   <div className='border-b-black border-b-[0.1px] pb-[10px] mb-[15px] lg:border-l-black lg:border-l-[0.1px]'></div>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[130px] mb-[10px]'>Contact Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[130px] mb-[10px]'>Contact Details</p>
                     <p>Email: {data.email}</p>
                     <p>Phone: {data.phone}</p>
                     <div className='flex justify-center'>
-                      <button onClick={() => updateStatus(data.id)} className='lg:mt-[50px] mt-[20px] text-[15px] px-[30px] py-[5px] text-white bg-[#886262] rounded-[20px] cursor-pointer'>Ship</button>
+                      <button onClick={() => updateStatus(data.id)} className='lg:mt-[50px] mt-[20px] text-[15px] px-[30px] py-[5px] text-black bg-[#f8f3eb] rounded-[20px] cursor-pointer'>Ship</button>
                     </div>
                   </div>
                 </div>
@@ -158,12 +158,12 @@ const Index = () => {
           <ul className='shadow-2xl blurred-background bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]'>
             {salesshipped.map((data) => (
               <li className="px-[10px] mb-[55px]" key={data.id}>
-                <div className="my-[20px] text-center bg-[#886262] rounded-[15px] text-white lg:w-[400px]">
+                <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                   <p>{data.formattedCreatedAt}</p>
                 </div>
                 <div className='flex flex-col lg:flex-row justify-around lg:mt-[40px]'>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[112px] mb-[10px]'>Order Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[112px] mb-[10px]'>Order Details</p>
                     <p>Order No: {data.id}</p>
                     <p>Total: {data.total}</p>
                     <p>Quantity: {data.quantity}</p>
@@ -172,7 +172,7 @@ const Index = () => {
                   </div>
                   <div className='border-b-black border-b-[0.1px] pb-[10px] mb-[15px] lg:border-l-black lg:border-l-[0.1px]'></div>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[145px] mb-[10px]'>Customer Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[145px] mb-[10px]'>Customer Details</p>
                     <p>Customer: {data.customer}</p>
                     <p>Address: {data.address}</p>
                     <p>City: {data.city}</p>
@@ -182,7 +182,7 @@ const Index = () => {
                   </div>
                   <div className='border-b-black border-b-[0.1px] pb-[10px] mb-[15px] lg:border-l-black lg:border-l-[0.1px]'></div>
                   <div>
-                    <p className=' rounded-[15px] pl-[10px] text-white bg-[#886262] text-[15px] w-[130px] mb-[10px]'>Contact Details</p>
+                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[130px] mb-[10px]'>Contact Details</p>
                     <p>Email: {data.email}</p>
                     <p>Phone: {data.phone}</p>
                   </div>
