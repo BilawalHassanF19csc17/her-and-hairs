@@ -30,7 +30,7 @@ const Productlunch = () => {
             body: JSON.stringify({ email, name, phone, countryCode })
         })
         if (response.status === 200) {
-            setMessage('Successfully Added');
+            setMessage('Successfully added');
         } else {
             setMessage('Already Exist');
         }
@@ -89,7 +89,7 @@ const Productlunch = () => {
                         <button className='bg-[#bf978f] w-[100px]
           h-[30px] my-[10px] text-white rounded-[15px]'  type='submit' >Submit</button>
                     </div>
-                    {message && <p className='text-center text-[12px]'>{message}</p>}
+                    {message && <p className='text-center text-white text-[12px]'>{message}</p>}
                 </form>
             </div>
             <Footer2/>

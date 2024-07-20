@@ -10,7 +10,7 @@ const Footer2 = () => {
             <Image width={150} height={150} alt='logo' src={'/image-removebg-preview.png'}/>
         </div>
         <div className='mb-[50px]'>
-            <p className='text-center'>© {currentdate} All rights reserved by I Connect Solutions</p>
+            <p className='text-center'>© {currentdate} All rights reserved by I-Connect Solutions</p>
         </div>
     </footer>
     </>
