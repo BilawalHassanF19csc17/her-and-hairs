@@ -32,7 +32,7 @@ const Productlunch = () => {
         if (response.status === 200) {
             setMessage('Successfully added');
         } else {
-            setMessage('Already Exist');
+            setMessage('The details you have added already exist');
         }
         setName('');
         setCountryCode('');
