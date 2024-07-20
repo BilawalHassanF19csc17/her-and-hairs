@@ -1,4 +1,4 @@
-import Footer from '@/components/footer';
+import Footer2 from '@/components/footer2';
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react';
@@ -78,7 +78,7 @@ const Productlunch = () => {
     }
       `}
             </style>
-            <div className='flex justify-center h-[500px] items-center'>
+            <div className='flex bg-white justify-center h-[500px] items-center'>
                 <form onSubmit={addCustomer} className=' w-[300px] lg:w-[600px] 
                 h-[400px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     {loader&&<Loader/>}
@@ -104,13 +104,13 @@ const Productlunch = () => {
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] lg:w-[500px] pl-[10px]' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className='mt-[10px]'>
-                        <button className='bg-[#e4e4e4] w-[100px]
-          h-[30px] my-5 text-black rounded-[15px]'  type='submit' >Submit</button>
+                        <button className='bg-[#bf978f] w-[100px]
+          h-[30px] my-5 text-white rounded-[15px]'  type='submit' >Submit</button>
                     </div>
                     {message && <p className='text-center text-[12px]'>{message}</p>}
                 </form>
             </div>
-            <Footer/>
+            <Footer2/>
         </>
     )
 }
