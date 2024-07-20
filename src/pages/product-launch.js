@@ -49,61 +49,43 @@ const Productlunch = () => {
             <style jsx>
                 {`
       .blurred-background {
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px); /* Safari */
+        backdrop-filter: blur(60px);
+        -webkit-backdrop-filter: blur(60px); /* Safari */
       }
-      select {
-        -webkit-appearance: none; /* Remove default styling */
-        -moz-appearance: none;
-        appearance: none;
-    }
 
-    .select-wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    .select-wrapper::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid #000;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
+      .backimg{
+        background-image: url('/productlaunch.png');
+        background-size: cover;
+        background-position-x: center;
+      }
       `}
             </style>
-            <div className='flex bg-white justify-center h-[500px] items-center'>
+            <div className='backimg flex justify-center h-[600px] items-center w-full'>
                 <form onSubmit={addCustomer} className=' w-[350px] lg:w-[600px] 
-                h-[350px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 '>
+                h-[350px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 mt-[20px] bg-[#d0cccc]'>
                     {loader&&<Loader/>}
                     <div className='px-[10px]'>
-                        <p className='text-center mt-[10px] mb-[10px] italic text-[18px] lg:text-[28px] font-serif'>
-                                Get notified for my most awaited Haircare launch<span className='text-[#886262]'>♡</span>
+                        <p className='text-center mt-[10px] mb-[10px] italic text-[24px] lg:text-[28px] font-serif text-white'>
+                                Get notified for my most awaited Haircare launch<span className='text-white'>♡</span>
                         </p>
                     </div>
                     <div className='mt-[0px]'>
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[300px] lg:w-[500px] h-[40px] pl-[10px]' type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} required />
                     </div>  
                     <div className='mt-[0px] flex justify-center items-center'>
-                        <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[36px]' >
+                        <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
                             {countries.map((country) => (
                                 <option key={country.code} value={country.code}>
                                     {country.name}
                                 </option>
                             ))}
                         </select>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[243px] lg:w-[438px] h-[40px] pl-[10px]' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[200px] lg:w-[422px] h-[40px] pl-[10px]' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
                     </div>
                     <div className='mt-[0px]'>
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[300px] h-[40px] lg:w-[500px] pl-[10px]' type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
-                    <div className='mt-[0px]'>
+                    <div className='mb-[0px] '>
                         <button className='bg-[#bf978f] w-[100px]
           h-[30px] my-[10px] text-white rounded-[15px]'  type='submit' >Submit</button>
                     </div>

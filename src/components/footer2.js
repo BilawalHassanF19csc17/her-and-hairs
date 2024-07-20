@@ -5,7 +5,7 @@ const Footer2 = () => {
     const currentdate = new Date().getFullYear();
   return (
     <>
-    <footer className='flex flex-col justify-center bg-[#dfcbc7] mt-[100px]'>
+    <footer className='flex w-full flex-col justify-center bg-[#f0e0dd] '>
         <div className='flex justify-center'>
             <Image width={150} height={150} alt='logo' src={'/image-removebg-preview.png'}/>
         </div>
