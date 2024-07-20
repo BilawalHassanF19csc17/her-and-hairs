@@ -76,7 +76,7 @@ const Marketing = () => {
                     <button onClick={showEmail} className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
                 </div>
             </div>
-            {tabs === 'customers' && <div className='flex justify-center items-center lg:h-[400px] h-[500px] w-[100%]'>
+            {tabs === 'customers' && <div className='flex justify-center items-center   w-[100%]'>
                 <ul className='w-[400px] lg:w-[900px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px]'>Customer Details</p>
