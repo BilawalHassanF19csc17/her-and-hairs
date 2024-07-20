@@ -2,7 +2,7 @@ import Footer2 from '@/components/footer2';
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react';
-import Loader from '@/components/loader';
+import Loader2 from '@/components/loader2';
 
 const Productlunch = () => {
     const [email, setEmail] = useState('');
@@ -63,7 +63,7 @@ const Productlunch = () => {
             <div className='backimg flex justify-center h-[600px] items-center w-full'>
                 <form onSubmit={addCustomer} className=' w-[350px] lg:w-[600px] 
                 h-[350px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 mt-[20px] bg-[#d0cccc]'>
-                    {loader&&<Loader/>}
+                    {loader&&<Loader2/>}
                     <div className='px-[10px]'>
                         <p className='text-center mt-[10px] mb-[10px] italic text-[24px] lg:text-[28px] font-serif text-white'>
                                 Get notified for my most awaited Haircare launch<span className='text-white'>♡</span>
