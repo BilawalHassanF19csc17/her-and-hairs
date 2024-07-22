@@ -1,5 +1,6 @@
 import connectToDatabase from "../../../../lib/mongodb";
 import Customer from "../../../../models/Customer";
+import Subscriber from "../../../../models/Subscriber";
 import nodemailer from 'nodemailer';
 
 let counter = 0;
@@ -38,14 +39,25 @@ export default async function handler(req, res) {
     await connectToDatabase();
 
     if (req.method === 'POST') {
-        const { subject, text } = req.body
+        const {audience, subject, text } = req.body
 
-        const customers = await Customer.find();
+        if(audience === 'customers'){
+            const customers = await Customer.find();
 
         for (let i = 0; i < customers.length; i++) {
             await sendNotification(subject, text, customers[i].name, customers[i].email);
         }
         res.status(200).json({ counter });
+
+        } else if(audience === 'subscribers'){
+            const subcribers = await Subscriber.find();
+
+        for (let i = 0; i < subcribers.length; i++) {
+            await sendNotification(subject, text, subcribers[i].name, subcribers[i].email);
+        }
+        res.status(200).json({ counter });
+        }
+        
     } else {
         res.status(400).end();
     }
