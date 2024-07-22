@@ -78,7 +78,7 @@ export default function Home() {
           </div>
           <div className="flex justify-center">
             <button className="bg-[#e4e4e4] w-[100px]
-          h-[30px] my-5 text-black rounded-[15px]" type="submit">Login
+          h-[30px] my-5 text-black rounded-[15px] border-[1px] border-black" type="submit">Login
 
             </button>
           </div>

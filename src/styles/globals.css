@@ -5,6 +5,7 @@
 body{
     background-image: url('/Untitleddesign.png');
     background-size: cover;
+    background-position-x: center;
     background-attachment: fixed;
     z-index: 0;
 }

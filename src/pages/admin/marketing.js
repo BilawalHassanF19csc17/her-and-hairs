@@ -72,14 +72,14 @@ const Marketing = () => {
             <Navbar />
             <div className='flex justify-center'>
                 <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[200px] flex p-[3px]'>
-                    <button onClick={showCustomers} className={`${tabs === 'customers' ? 'bg-[#e4e4e4] text-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Customers</button>
-                    <button onClick={showEmail} className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
+                    <button onClick={showCustomers} className={`${tabs === 'customers' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Customers</button>
+                    <button onClick={showEmail} className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
                 </div>
             </div>
             {tabs === 'customers' && <div className='flex justify-center items-center   w-[100%]'>
                 <ul className='w-[400px] lg:w-[900px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
-                    <p className=' rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px]'>Customer Details</p>
+                    <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px]'>Customer Details</p>
                     {customers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
                             <div className=' flex justify-start flex-wrap lg:justify-around'>
@@ -95,7 +95,7 @@ const Marketing = () => {
             {tabs === 'emails' && <div className='flex justify-center items-center lg:h-[600px] h-[500px] w-[100%]'>
                 <form onSubmit={sendMail} className='w-[400px] lg:w-[600px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
-                    <p className=' rounded-[15px] pl-[0px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px] text-center'>Write your Email</p>
+                    <p className='border-[1px] border-black rounded-[15px] pl-[0px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px] text-center'>Write your Email</p>
                     <div>
                         <input className='border-2 border-grey rounded-[5px] my-2 w-[370px] lg:w-[500px] h-[40px] text-center' type='text' placeholder='Enter Subject' value={subject} onChange={(e)=>setSubject(e.target.value)} required />
                     </div>
@@ -111,7 +111,7 @@ const Marketing = () => {
                         />
                     </div>
                     <div className='mt-[10px]'>
-                        <button className='bg-[#f8f3eb] w-[100px]
+                        <button className='border-[1px] border-black bg-[#f8f3eb] w-[100px]
           h-[30px] my-5 text-black rounded-[15px]'  type='submit' >Submit</button>
                     </div>
                     <div>

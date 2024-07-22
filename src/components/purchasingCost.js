@@ -60,7 +60,7 @@ export default function PurchasingCost(){
                 <input className="border-2 border-grey rounded-[5px] my-2 w-[245px] h-[40px] text-center" type="number" placeholder="Enter packaging cost" value={packagingcost} onChange={(e)=>setPackagingCost(e.target.value)}/>
                 </div>
                 <div className="flex justify-center">
-                    <button className="bg-[#e4e4e4] w-[100px]
+                    <button className="border-[1px] border-black bg-[#e4e4e4] w-[100px]
           h-[30px] my-5 text-black rounded-[15px]" type="submit">Update</button>
                 </div>
             </form> 

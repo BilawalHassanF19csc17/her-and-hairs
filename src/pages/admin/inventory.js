@@ -125,18 +125,18 @@ const Inventory = () => {
                 <div>
                     <div>
                         <div className='flex justify-center items-center mt-[30px]'>
-                            <input className='rounded-[20px] p-[3px]' type='date' value={selectedDate} onChange={selectDate} />
-                            <button className='rounded-[15px] ml-[5px] px-[3px] text-black bg-[#e4e4e4] text-[15px] w-[70px] ' onClick={() => setSaleRender(false)}>Cancel</button>
+                            <input className='rounded-[20px] p-[3px] border-[1px] border-black' type='date' value={selectedDate} onChange={selectDate} />
+                            <button className=' border-[1px] border-black rounded-[15px] ml-[5px] px-[3px] text-black bg-[#e4e4e4] text-[15px] w-[70px] ' onClick={() => setSaleRender(false)}>Cancel</button>
                         </div>
                     </div>
                     <div className="flex justify-center">
                         {message && <p className="text-black rounded-[20px] w-[300px] bg-red-500 text-[28px] text-center mt-[40px] ">{message}</p>}
                     </div>
                     {saleRender && <ul className="shadow-2xl blurred-background bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
-                        <p className="my-[10px] text-center bg-[#f8f3eb] rounded-[15px] text-black w-[105px] mx-auto">{selectedDate}</p>
+                        <p className=" border-[1px] border-black my-[10px] text-center bg-[#f8f3eb] rounded-[15px] text-black w-[105px] mx-auto">{selectedDate}</p>
                         {selectedSales.map((data) => (
                             <li key={data._id} className="px-[10px]">
-                                <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
+                                <div className="my-[20px] text-center border-[1px] border-black bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                                     <p>{data.formattedCreatedAt} {data.formattedCreatedTime}</p>
                                 </div>
                                 <p className='text-center'>Number of bottles added {data.bottle}</p>
@@ -147,13 +147,13 @@ const Inventory = () => {
                     </ul>}
                     {!saleRender && <ul className="shadow-2xl blurred-background bg-opacity-20 m-4 py-4 mb-4 rounded-[10px]">
                         <div className='flex justify-end'>
-                            <div className='text-black bg-[#f8f3eb] rounded-[15px] m-[20px] px-[10px] text-[20px]'>
+                            <div className='border-[1px] border-black text-black bg-[#f8f3eb] rounded-[15px] m-[20px] px-[10px] text-[20px]'>
                                 <p>Inventory left:{inventoryLeft} </p>
                             </div>
                         </div>
                         {inventorydata.map((data) => (
                             <li key={data._id} className="px-[10px]">
-                                <div className="my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
+                                <div className="border-[1px] border-black my-[20px] text-center bg-[#f8f3eb] rounded-[15px] text-black lg:w-[400px]">
                                     <p>{data.formattedCreatedAt} {data.formattedCreatedTime}</p>
                                 </div>
                                 <p className='text-center'>Number of bottles added {data.bottle}</p>

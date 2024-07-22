@@ -10,7 +10,7 @@ const Logout = () => {
   }
   return (
     <div className='flex justify-center my-[20px]'>
-        <button className='flex justify-center items-center bg-[#e4e4e4] w-[100px]
+        <button className='border-[1px] border-black flex justify-center items-center bg-[#e4e4e4] w-[100px]
           h-[30px] my-5 text-black rounded-[15px]' onClick={logoutNow}><p className='text-[15px] mr-[10px]'>Logout</p><svg fill="none" viewBox="0 0 15 15" height="1em" width="1em" >
       <path
         stroke="currentColor"
