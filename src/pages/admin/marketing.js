@@ -123,7 +123,7 @@ const Marketing = () => {
                         />
                     </div>
                     <div>
-                        <select value={audience} onChange={(e) => setAudience(e.target.value)} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
+                        <select value={audience} onChange={(e) => setAudience(e.target.value)} required className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
                         <option disabled value={''}>
                                 Select audience
                             </option>
