@@ -22,6 +22,15 @@ function runMiddleware(req, res, fn) {
     await connectToDatabase();
     await runMiddleware(req, res, cors);
 
+    if (req.method === 'OPTIONS') {
+      // Handle preflight request
+      res.setHeader('Access-Control-Allow-Origin', 'https://herandhair.com');
+      res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      res.status(200).end();
+      return;
+  }
+
     if(req.method === 'POST'){
         const {name,email} = req.body;
 
@@ -38,6 +47,6 @@ function runMiddleware(req, res, fn) {
         await subscriber.save();
         res.status(200).json('Successfull Subscribed');
     } else{
-        res.status(500).end();
+        res.status(500).json({message: "Method not allowed"});
     }
   }
