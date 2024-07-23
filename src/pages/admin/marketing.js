@@ -97,7 +97,7 @@ const Marketing = () => {
                     [15px] w-[250px] mb-[30px]'>Total number of Customers {customers.length}</p>
                     {customers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
-                            <div className=' flex justify-start flex-wrap lg:justify-around'>
+                            <div className=' flex justify-start'>
                                 <p>Name: {customer.name}</p>
                                 <p>Email: {customer.email}</p>
                                 <p>Phone: {customer.countrycode} {customer.phone}</p>
