@@ -84,14 +84,17 @@ const Marketing = () => {
             <div className='flex justify-center'>
                 <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[320px] flex p-[3px]'>
                     <button onClick={showCustomers} className={`${tabs === 'customers' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Customers</button>
-                    <button onClick={showEmail} className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
+                    <button onClick={showEmail}  className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
                     <button onClick={showSubscribers} className={`${tabs === 'subscribers' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Subscribers</button>
                 </div>
             </div>
             {tabs === 'customers' && <div className='flex justify-center items-center   w-[100%]'>
                 <ul className='w-[400px] lg:w-[900px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
-                    <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px]'>Customer Details</p>
+                    <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-
+                    [15px] w-[140px] mb-[30px]'>Customer Details</p>
+                    <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-
+                    [15px] w-[250px] mb-[30px]'>Total number of Customers {customers.length}</p>
                     {customers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
                             <div className=' flex justify-start flex-wrap lg:justify-around'>
@@ -148,6 +151,8 @@ const Marketing = () => {
                 <ul className='w-[400px] lg:w-[900px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     <p className='border-[1px] border-black rounded-[15px]  text-black bg-[#f8f3eb] text-[15px] w-[160px] text-center mb-[30px]'>Subscribers Details</p>
+                    <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-
+                    [15px] w-[250px] mb-[30px]'>Total number of Subscribers {subscribers.length}</p>
                     {subscribers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
                             <div className=' flex justify-start flex-wrap lg:justify-around'>
