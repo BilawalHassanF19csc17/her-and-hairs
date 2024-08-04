@@ -39,7 +39,16 @@ export default async function handler(req, res) {
     await connectToDatabase();
 
     if (req.method === 'POST') {
-        const {audience, subject, text } = req.body
+        const {selectedCustomers, audience, subject, text } = req.body
+
+        if(audience === 'Selected Audience'){
+            for (let i = 0; i < selectedCustomers.length; i++ ){
+                const customer = await Customer.findOne({email: selectedCustomers[i].email});
+                console.log(customer);
+                await sendNotification(subject, text, customer.name, customer.email);
+            }
+            res.status(200).json({ counter });
+        }
 
         if(audience === 'customers'){
             const customers = await Customer.find();

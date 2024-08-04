@@ -8,6 +8,7 @@ const Marketing = () => {
     const router = useRouter();
     const [customers, setCustomers] = useState([]);
     const [subscribers, setSubscribers] = useState([]);
+    const [selectedCustomers, setSelectedCustomers] = useState([]);
     const [subject, setSubject] = useState('');
     const [text, setText] = useState('');
     const [audience, setAudience] = useState('');
@@ -51,6 +52,14 @@ const Marketing = () => {
         setTabs('subscribers');
     }
 
+    const selectedCustomersMail = async (customer, isChecked)=>{
+        if(isChecked){
+            setSelectedCustomers(prev => [...prev, customer]);
+        } else {
+            setSelectedCustomers(prev => prev.filter(c => c.email !== customer.email));
+        }
+    }
+
     const sendMail = async (e) => {
         setMessage('Sending Emails Please Wait Honey♥️...')
         e.preventDefault();
@@ -59,7 +68,7 @@ const Marketing = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({audience, subject, text })
+            body: JSON.stringify({ selectedCustomers, audience, subject, text })
         })
         if (response.status === 200) {
             const data = await response.json();
@@ -84,7 +93,7 @@ const Marketing = () => {
             <div className='flex justify-center'>
                 <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[320px] flex p-[3px]'>
                     <button onClick={showCustomers} className={`${tabs === 'customers' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Customers</button>
-                    <button onClick={showEmail}  className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
+                    <button onClick={showEmail} className={`${tabs === 'emails' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Email</button>
                     <button onClick={showSubscribers} className={`${tabs === 'subscribers' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Subscribers</button>
                 </div>
             </div>
@@ -97,10 +106,23 @@ const Marketing = () => {
                     [15px] w-[250px] mb-[30px]'>Total number of Customers {customers.length}</p>
                     {customers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
-                            <div className=' flex justify-start flex-wrap lg:justify-between'>
-                                <p>Name: {customer.name}</p>
-                                <p>Email: {customer.email}</p>
-                                <p>Phone: {customer.countrycode} {customer.phone}</p>
+                            <div className='flex justify-center w-[100%]'>
+                                <div className='w-[10%] flex justify-start items-center lg:w-[5%]'>
+                                    <input
+                                        type='checkbox'
+                                        onChange={(e) =>
+                                            selectedCustomersMail(
+                                                { email: customer.email },
+                                                e.target.checked
+                                            )
+                                        }
+                                    />
+                                </div>
+                                <div className='w-[90%] flex-wrap lg: flex lg: justify-between '>
+                                    <p>Name: {customer.name}</p>
+                                    <p>Email: {customer.email}</p>
+                                    <p>Phone: {customer.countrycode} {customer.phone}</p>
+                                </div>
                             </div>
                             <div className='border-b-black border-b-[0.1px] pb-[10px] mb-[15px]'></div>
                         </li>
@@ -127,13 +149,16 @@ const Marketing = () => {
                     </div>
                     <div>
                         <select value={audience} onChange={(e) => setAudience(e.target.value)} required className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
-                        <option disabled value={''}>
+                            <option disabled value={''}>
                                 Select audience
                             </option>
-                            <option  value={'subscribers'}>
+                            <option value={'Selected Audience'}>
+                                Selected Audience
+                            </option>
+                            <option value={'subscribers'}>
                                 Subscribers
                             </option>
-                            <option  value={'customers'}>
+                            <option value={'customers'}>
                                 Customers
                             </option>
                         </select>
