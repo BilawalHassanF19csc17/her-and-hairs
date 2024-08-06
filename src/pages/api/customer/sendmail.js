@@ -13,7 +13,6 @@ const sendNotification = async (subject, text, name, email) => {
         }
     });
 
-    //emails.join(',')
     const mailOptions = {
         from: 'medisyncalerthub@gmail.com',
         to: email,
