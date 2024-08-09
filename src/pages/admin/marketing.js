@@ -60,15 +60,21 @@ const Marketing = () => {
         }
     }
 
+    const convertToHtmlString = (text) => {
+        return text.split('\n').map(line => `<p>${line}</p>`).join('');
+    };
+
     const sendMail = async (e) => {
         setMessage('Sending Emails Please Wait Honey♥️...')
         e.preventDefault();
+        const alignedText = await convertToHtmlString(text);
+        // console.log(alignedText);
         const response = await fetch('/api/customer/sendmail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ selectedCustomers, audience, subject, text })
+            body: JSON.stringify({ selectedCustomers, audience, subject, alignedText })
         })
         if (response.status === 200) {
             const data = await response.json();
@@ -134,11 +140,11 @@ const Marketing = () => {
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     <p className='border-[1px] border-black rounded-[15px] pl-[0px] text-black bg-[#f8f3eb] text-[15px] w-[140px] mb-[30px] text-center'>Write your Email</p>
                     <div>
-                        <input className='border-2 border-grey rounded-[5px] my-2 w-[370px] lg:w-[500px] h-[40px] text-center' type='text' placeholder='Enter Subject' value={subject} onChange={(e) => setSubject(e.target.value)} required />
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[370px] lg:w-[515px] h-[40px] px-[15px]' type='text' placeholder='Enter Subject' value={subject} onChange={(e) => setSubject(e.target.value)} required />
                     </div>
                     <div>
                         <textarea
-                            className='border-2 border-grey rounded-[5px] my-2 text-center w-full'
+                            className='border-2 border-grey rounded-[5px] my-2 w-full pl-[15px] pr-[15px] pt-[15px]'
                             cols={57}
                             rows={10}
                             placeholder='Type your magical mail'
