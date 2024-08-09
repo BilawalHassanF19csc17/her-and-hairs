@@ -6,22 +6,26 @@ import nodemailer from 'nodemailer';
 let counter = 0;
 const sendNotification = async (subject, text, name, email) => {
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.hostinger.com',
+        port: 587, // Secure port for STARTTLS
+        secure: false, // Use STARTTLS (automatically upgrade to TLS)
         auth: {
-            user: 'medisyncalerthub@gmail.com',
-            pass: 'tawt ifec atpf ezzp'
+            user: 'contact@herandhair.com',
+            pass: 'Calmdown123@$!!'
         }
     });
 
     const mailOptions = {
-        from: 'medisyncalerthub@gmail.com',
+        from: '"Her & Hair" <contact@herandhair.com>',
         to: email,
         subject: `${subject}`,
-        html: `<div style="font-family: Arial, sans-serif; color: #333;">
-        <img src="https://herandhair.com/wp-content/uploads/2021/03/cropped-cropped-Her-83-x-500-px.png" alt="logo"/>
-        <h3 style="color: #4CAF50;">Hi ${name},</h3>
-        <p>${text}</p>
+        html: `<div
+        style="font-family: Arial, sans-serif;">
+        <h3>Hi ${name},</h3>
+        <p style="">${text}</p>
         <p style="font-style: italic;">Thank you</p>
+        <p style="font-style: italic; margin: 0;">Regards,</p>
+        <p style="font-style: italic; margin: 0;">Her & Hair</p>
     </div>`
     }
 
