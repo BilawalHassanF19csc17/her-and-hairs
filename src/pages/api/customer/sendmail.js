@@ -22,7 +22,7 @@ const sendNotification = async (subject, text, name, email) => {
         html: `<div
         style="font-family: Arial, sans-serif;">
         <h3>Hi ${name},</h3>
-        <p style="">${text}</p>
+        <div>${text}</div>
         <p style="font-style: italic;">Thank you</p>
         <p style="font-style: italic; margin: 0;">Regards,</p>
         <p style="font-style: italic; margin: 0;">Her & Hair</p>
