@@ -31,7 +31,7 @@ const Productlunch = () => {
                 <form className=' w-[350px] lg:w-[400px] 
                 h-[150px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 mt-[20px] bg-[#d0cccc]'>
                     <div className='px-[10px] flex justify-center items-center flex-col'>
-                    <p className='text-center mt-[10px] mb-[10px] italic text-[24px] lg:text-[28px] font-serif text-white'>
+                    <p className='text-center mt-[10px] mb-[10px] text-[24px] lg:text-[28px] font-serif text-white'>
                                 Select Your Country
                         </p>
                         <select
