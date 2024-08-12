@@ -32,7 +32,7 @@ const Productlunch = () => {
                 h-[150px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 mt-[20px] bg-[#d0cccc]'>
                     <div className='px-[10px] flex justify-center items-center flex-col'>
                     <p className='text-center mt-[10px] mb-[10px] italic text-[24px] lg:text-[28px] font-serif text-white'>
-                                Select Your Country<span className='text-white'>♡</span>
+                                Select Your Country
                         </p>
                         <select
                             className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200'
