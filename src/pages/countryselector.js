@@ -27,7 +27,7 @@ const Productlunch = () => {
       }
       `}
             </style>
-            <div className='backimg flex justify-center h-[600px] items-center w-full'>
+            <div className='backimg flex justify-center h-[800px] items-center w-full'>
                 <form className=' w-[350px] lg:w-[400px] 
                 h-[150px] rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4 mt-[20px] bg-[#d0cccc]'>
                     <div className='px-[10px] flex justify-center items-center flex-col'>
