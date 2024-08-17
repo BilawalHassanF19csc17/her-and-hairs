@@ -19,14 +19,11 @@ const sendNotification = async (subject, alignedText, name, email) => {
         from: '"Her & Hair" <contact@herandhair.com>',
         to: email,
         subject: `${subject}`,
-        html: `<div
-        style="font-family: Arial, sans-serif;">
-        <h3 style="text-align: center;>Dear ${name},</h3>
-        <div style=" padding-left: 40px; padding-right: 40px;">${alignedText}</div>
-        <p style="font-style: italic; text-align: center;">Thank you</p>
-        <p style="font-style: italic; margin: 0; text-align: center;">Regards,</p>
-        <p style="font-style: italic; margin: 0; text-align: center;">Her & Hair</p>
-    </div>`
+        html: `<h3>Dear ${name},</h3>
+        <div>${alignedText}</div>
+        <p style="font-style: italic;">Thank you</p>
+        <p style="font-style: italic; margin: 0;">Regards,</p>
+        <p style="font-style: italic; margin: 0;">Her & Hair</p>`
     }
 
     try {
