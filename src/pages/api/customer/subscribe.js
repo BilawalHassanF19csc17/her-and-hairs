@@ -32,7 +32,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    const { name, email } = await req.body;
+    const { first_name, email } = await req.body;
 
     const existingUser = await Subscriber.findOne({ email });
     if (existingUser) {
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     }
 
     const subscriber = new Subscriber({
-      name,
+      name: first_name,
       email
     });
 
