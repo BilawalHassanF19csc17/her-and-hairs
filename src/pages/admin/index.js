@@ -11,6 +11,7 @@ const Index = () => {
   const [salesshipped, setSalesshipped] = useState([]);
   const [tabs, setTabs] = useState('pending');
   const [messageP, setMessageP] = useState('');
+  const [trackingid, setTrackingid] = useState('');
 
   const fetchSales = async () => {
     const token = localStorage.getItem('token');
@@ -45,29 +46,48 @@ const Index = () => {
         setSales(formattedDataPending);
       }
 
-      const formattedDataShipped = dataShipped.map(item => ({
-        ...item,
-        formattedCreatedAt: new Date(item.date).toLocaleString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric',
-          hour12: true
-        }),
-        formattedUpdatedAt: new Date(item.updatedAt).toLocaleString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric',
-          hour12: true
-        })
-      }));
-      formattedDataShipped.reverse();
-      setSalesshipped(formattedDataShipped);
+      if (dataShipped.length > 0) {
+        const formattedDataShipped = dataShipped.map(item => ({
+          ...item,
+          formattedCreatedAt: new Date(item.date).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+          }),
+          formattedUpdatedAt: new Date(item.updatedAt).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+          })
+        }));
+        formattedDataShipped.reverse();
+        setSalesshipped(formattedDataShipped);
+      }
+    }
+  }
+
+  const sendTracking = async(trackingID, customer, email)=>{
+    const response = await fetch('api/customer/tracking',{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify({trackingID,customer,email})
+    });
+    if(response.ok){
+      alert('Tracking Sent');
+      setTrackingid('');
+    } else {
+      alert('Could not send');
+      setTrackingid('');
     }
   }
 
@@ -111,7 +131,7 @@ const Index = () => {
         <div className='flex justify-center'>
           <div className='shadow-2xl m-4 bg-white mt-[15px] rounded-[30px] w-[200px] flex p-[3px]'>
             <button onClick={pendingOrder} className={`${tabs === 'pending' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Pending</button>
-            <button onClick={shippedOrder} className={`${tabs === 'shipped' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Shipped</button> 
+            <button onClick={shippedOrder} className={`${tabs === 'shipped' ? 'bg-[#e4e4e4] text-black border-[1px] border-black' : ''} w-[50%] p-[5px] rounded-[30px]`}>Shipped</button>
           </div>
         </div>
         {tabs === 'pending' && (
@@ -185,6 +205,11 @@ const Index = () => {
                     <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-[15px] w-[130px] mb-[10px]'>Contact Details</p>
                     <p>Email: {data.email}</p>
                     <p>Phone: {data.phone}</p>
+                    <div className='flex justify-center items-center flex-col'>
+                      <input placeholder='Tracking ID' value={trackingid} onChange={(e) => setTrackingid(e.target.value)} type='text' className='border-2 border-grey rounded-[5px] mt-6 w-[245px] h-[40px] text-center' />
+                      <button className='border-[1px] border-black bg-[#e4e4e4] w-[100px]
+          h-[30px] my-5 text-black rounded-[15px]' onClick={()=>sendTracking(trackingid, data.customer, data.email)} >Send</button>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -193,7 +218,7 @@ const Index = () => {
         )}
 
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }
