@@ -3,8 +3,8 @@ import nodemailer from 'nodemailer';
 const sendNotification = async (trackingID,customer,email) => {
     const transporter = nodemailer.createTransport({
         host: 'smtp.hostinger.com',
-        port: 587, // Secure port for STARTTLS
-        secure: false, // Use STARTTLS (automatically upgrade to TLS)
+        port: 587, 
+        secure: false, 
         auth: {
             user: 'contact@herandhair.com',
             pass: 'Calmdown123@$!!'
