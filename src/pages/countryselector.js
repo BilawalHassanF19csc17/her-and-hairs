@@ -43,10 +43,25 @@ const Productlunch = () => {
                             <option value='https://herandhair.com'>Canada</option>
                             <option value='https://herandhair.com'>United Kingdom</option>
                             <option value='https://pk.herandhair.com'>Pakistan</option>
-                            <option value='https://herandhair.com'>India</option>
+                            {/* <option value='https://herandhair.com'>India</option> */}
                             <option value='https://herandhair.com'>United Arab Emirates</option>
                             <option value='https://herandhair.com'>Malayisa</option>
                             <option value='https://herandhair.com'>Bangladesh</option>
+                            <option value='https://herandhair.com'>Germany</option>
+                            <option value='https://herandhair.com'>Saudi Arab</option>
+                            <option value='https://herandhair.com'>Finland</option>
+                            <option value='https://herandhair.com'>Italy</option>
+                            <option value='https://herandhair.com'>Phillipines</option>
+                            <option value='https://herandhair.com'>France</option>
+                            <option value='https://herandhair.com'>Greece</option>
+                            <option value='https://herandhair.com'>Hong Kong</option>
+                            <option value='https://herandhair.com'>Turkey</option>
+                            <option value='https://herandhair.com'>Indonesia</option>
+                            <option value='https://herandhair.com'>Poland</option>
+                            <option value='https://herandhair.com'>Norway</option>
+                            <option value='https://herandhair.com'>South Africa</option>
+                            <option value='https://herandhair.com'>Sri Lanka</option>
+                            <option value='https://herandhair.com'>Sweden</option>
                         </select>
                     </div>
                 </form>
