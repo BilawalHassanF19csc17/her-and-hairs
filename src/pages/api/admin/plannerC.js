@@ -17,9 +17,7 @@ export default async function handler(req, res){
         await taskAdd.save();
         res.status(200).json({message: "New Task added Sweetheart <3"});
     } else if(req.method === 'GET'){
-        const {userID} = req.query;
-        const taskGet = await Tasks.find({userID, status: 'completed'});
-        console.log(taskGet);
+        const taskGet = await Tasks.find({status: 'completed'});
         if(taskGet.length === 0){
             res.status(300).json({messge:"No task found"});
         }

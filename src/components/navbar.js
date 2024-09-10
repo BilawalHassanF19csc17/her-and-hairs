@@ -45,7 +45,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="menu w-[100%] lg:w-[80%] flex justify-center lg:justify-center items-center py-[10px]">
-          <div className='bg-[#e4e4e4] border-[1px] border-blackborder-[1px] border-black p-[5px] rounded-[20px] text-black w-[383px] md:w-[450px]'>
+          <div className='bg-[#e4e4e4] border-[1px] border-blackborder-[1px] border-black p-[5px] rounded-[20px] text-black w-[383px] md:w-[600px]'>
             <ul className='flex flex-wrap justify-center'>
               <Link href="/admin/">
                 <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#000000]'>Sales</li>
@@ -61,6 +61,9 @@ const Navbar = () => {
               </Link>
               <Link href="/admin/marketing">
                 <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#000000]'>Marketing</li>
+              </Link>
+              <Link href="/admin/planner">
+                <li className='mx-3 hover:border-b-[2px] hover:border-b-solid hover:border-b-[#000000]'>Planing</li>
               </Link>
             </ul>
           </div>

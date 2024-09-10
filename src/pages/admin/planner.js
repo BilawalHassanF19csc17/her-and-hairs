@@ -18,24 +18,23 @@ const Planner = () => {
     const fetchData = async () => {
         const token = localStorage.getItem('token');
         const userRole = localStorage.getItem('userRole');
-        const userID = localStorage.getItem('userID');
-        const url = `/api/admin/planner?userID=${userID}`;
-        const urlSub = `/api/admin/plannerC?userID=${userID}`;
-        console.log(userID);
+        const url = '/api/admin/planner';
+        const urlSub = '/api/admin/plannerC';
         if (!token || userRole === 'employee') {
             localStorage.removeItem('token');
             localStorage.removeItem('userRole');
             router.push('/');
         } else {
             console.log('check')
-            const response = await fetch(url);
-            const responseSub = await fetch(urlSub);
-            const data = await response.json();
+            const responseSub = await fetch(urlSub,{ cache: 'no-store' });
             const dataSub = await responseSub.json();
+            const response = await fetch(url,{ cache: 'no-store' });
+            const data = await response.json();
             if (response.ok) {
                 setPending(data);
             }
             if (responseSub.ok) {
+                console.log(dataSub);
                 setCompleted(dataSub);
             }
         }
@@ -192,7 +191,7 @@ const Planner = () => {
             {tabs === 'completedTasks' && <div className='flex justify-center items-center   w-[100%]'>
                 <ul className='w-[400px] lg:w-[900px] 
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
-                    <p className='border-[1px] border-black rounded-[15px]  text-black bg-[#f8f3eb] text-[15px] w-[160px] text-center mb-[30px]'>Subscribers Details</p>
+                    <p className='border-[1px] border-black rounded-[15px]  text-black bg-[#f8f3eb] text-[15px] w-[160px] text-center mb-[30px]'>Completed Tasks</p>
                     {completed.map((item) => (
                         <li className='w-[100%]' key={item._id}>
                         <div className='flex justify-center w-[100%]'>
