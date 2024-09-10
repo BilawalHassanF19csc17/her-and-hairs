@@ -15,12 +15,13 @@ export default async function handler(req,res){
             const isValidPass = await bcrypt.compare(password,user.password);
 
             if(isValidPass){
+                const userID = user._id;
                 const userRole = user.role;
                 const token = jwt.sign({userId: user._id},process.env.JWT_SECRET,{
                     expiresIn: '1h'
                 });
                 
-                return res.status(200).json({token, userRole});
+                return res.status(200).json({token, userRole, userID});
             } else {
                 return res.status(400).end();
             }

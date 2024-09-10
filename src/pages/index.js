@@ -31,11 +31,12 @@ export default function Home() {
       body: JSON.stringify({ email: lowercasedEmail, password })
     })
     if (response.status === 200) {
-      const { token, userRole } = await response.json();
+      const { token, userRole, userID } = await response.json();
       localStorage.setItem('token', token);
       localStorage.setItem('userRole', userRole);
+      localStorage.setItem('userID', userID);
       if (userRole === 'employee') {
-        router.push('/dashboard');
+        router.push('/');
       } else {
         router.push('/admin')
       }
