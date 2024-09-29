@@ -4,7 +4,7 @@ import Subscriber from '../../../../models/Subscriber';
 
 const cors = Cors({
   methods: ['POST', 'GET', 'HEAD'],
-  origin: 'https://herandhair.com/wishlist',
+  origin: 'https://herandhair.com',
 });
 
 function runMiddleware(req, res, fn) {
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') {
     // Handle preflight request
-    res.setHeader('Access-Control-Allow-Origin', 'https://herandhair.com/wishlist');
+    res.setHeader('Access-Control-Allow-Origin', 'https://herandhair.com');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.status(200).end();
