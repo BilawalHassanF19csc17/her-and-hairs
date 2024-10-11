@@ -1,5 +1,5 @@
 import connectToDatabase from "../../../../lib/mongodb";
-import Affiliate from "../../../../models/affiliate";
+import Affiliate from "../../../../models/Affiliate";
 
 export default async function handler (req, res){
     await connectToDatabase();
