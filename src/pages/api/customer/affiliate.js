@@ -1,5 +1,5 @@
 import connectToDatabase from "../../../../lib/mongodb";
-import affiliate from "../../../../models/affiliate";
+import Affiliate from "../../../../models/Affiliate";
 
 export default async function handler (req, res){
     await connectToDatabase();
@@ -13,7 +13,7 @@ export default async function handler (req, res){
             res.status(400).json({message:'Affiliate already exist'});
         }
 
-        const Affiliate = new affiliate({
+        const affiliate = new Affiliate({
             name,
             email,
             country: countryCode,
@@ -23,10 +23,10 @@ export default async function handler (req, res){
             website: web
         });
 
-        await Affiliate.save();
+        await affiliate.save();
         res.status(200).json({message: "Record Added"});
     } else if(req.method === 'GET'){
-        const affiliates = await affiliate.find();
+        const affiliates = await Affiliate.find();
         if(affiliates.length === 0){
             res.status(400).end();
         }
