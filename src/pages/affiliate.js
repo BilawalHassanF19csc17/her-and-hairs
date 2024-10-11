@@ -1,6 +1,5 @@
 import Footer2 from '@/components/footer2';
 import React from 'react'
-import Loader2 from '@/components/loader2'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Link from 'next/link';
