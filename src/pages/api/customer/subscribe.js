@@ -39,7 +39,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
 
     console.log(req.body);
-    const { name, email } = req.body; // Capture the request body
+    const { first_name, email } = req.body; // Capture the request body
 
     // Check if the user already exists
     const existingUser = await Subscriber.findOne({ email });
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
 
     // Create a new subscriber
     const subscriber = new Subscriber({
-      name,
+      name: first_name,
       email,
     });
 
