@@ -1,5 +1,5 @@
 import connectToDatabase from "../../../../lib/mongodb";
-import Affiliate from "../../../../models/Affiliate";
+import Affiliate from "../../../../models/affiliate";
 
 export default async function handler (req, res){
     await connectToDatabase();
@@ -7,7 +7,7 @@ export default async function handler (req, res){
     if(req.method === 'POST'){
         const {email, name, countryCode, yt, ig, fb, web} = req.body;
 
-        const existingCustomer = await affiliate.findOne({email});
+        const existingCustomer = await Affiliate.findOne({email});
 
         if(existingCustomer) {
             res.status(400).json({message:'Affiliate already exist'});
