@@ -37,8 +37,7 @@ export default async function handler(req, res) {
 
   // Handle POST request for subscribing
   if (req.method === 'POST') {
-
-    console.log(req.body);
+    
     const { first_name, email } = req.body; // Capture the request body
 
     // Check if the user already exists
