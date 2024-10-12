@@ -5,7 +5,7 @@ export default async function handler (req, res){
     await connectToDatabase();
 
     if(req.method === 'POST'){
-        const {email, name, countryCode, yt, ig, fb, web} = req.body;
+        const {email, name, phone, countryCode, yt, ig, fb, web} = req.body;
 
         const existingCustomer = await Affiliate.findOne({email});
 
@@ -16,6 +16,7 @@ export default async function handler (req, res){
         const affiliate = new Affiliate({
             name,
             email,
+            phone,
             country: countryCode,
             youtube: yt,
             facebook: fb,

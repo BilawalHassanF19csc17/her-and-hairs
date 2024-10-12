@@ -8,6 +8,7 @@ const Affiliate = () => {
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [yt, setYt] = useState('');
   const [ig, setIg] = useState('');
   const [fb, setFb] = useState('');
@@ -54,7 +55,7 @@ const Affiliate = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, name, countryCode, yt, ig, fb, web })
+            body: JSON.stringify({ email, name, phone, countryCode, yt, ig, fb, web })
         })
         if (response.status === 200) {
             setMessage('Thank you for registering! We will be in touch soon.');
@@ -66,6 +67,7 @@ const Affiliate = () => {
         setName('');
         setCountryCode('');
         setEmail('');
+        setPhone('');
         setFb('');
         setIg('');
         setYt('');
@@ -105,14 +107,16 @@ const Affiliate = () => {
               <input className='border-2 border-grey rounded-[5px] my-2 w-[300px] lg:w-[500px] h-[40px] pl-[10px]' type='text' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' required />
             </div>
             <div className='mt-[0px] flex justify-center items-center'>
-              <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[39px] bg-white rounded-[5px] border-[2px] w-[300px] lg:w-[500px] border-gray-200 my-2' >
-                <option disabled className='text-slate-300'>Country</option>
-                {countries.map((country) => (
-                  <option key={country.code} value={country.code}>
-                    {country.name}
-                  </option>
-                ))}
-              </select>
+            <div className='mt-[0px] flex justify-center items-center'>
+                        <select value={countryCode} onChange={(e) => setCountryCode(e.target.value)} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
+                            {countries.map((country) => (
+                                <option key={country.code} value={country.code}>
+                                    {country.name}
+                                </option>
+                            ))}
+                        </select>
+                        <input className='border-2 border-grey rounded-[5px] my-2 w-[220px] lg:w-[422px] h-[40px] pl-[10px]' type='tel' placeholder='Enter your Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                    </div>
             </div>
             <div className='mt-[20px] flex flex-col'>
               <div className='flex items-center'>
