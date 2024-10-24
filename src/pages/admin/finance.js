@@ -2,7 +2,7 @@ import React from 'react'
 
 const Finance = () => {
   return (
-    <div>finance</div>
+    <div>Waqar Chutiya hai </div>
   )
 }
 
