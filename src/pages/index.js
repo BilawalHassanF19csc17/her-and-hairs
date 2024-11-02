@@ -55,7 +55,7 @@ export default function Home() {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px); /* Safari */
       }
-      `}
+      `} 
     </style>
       <div className="main flex justify-evenly flex-wrap-reverse lg:mt-[50px]" >
         <div className="logo flex justify-center flex-col items-center w-[100%] lg:w-[60%]">
