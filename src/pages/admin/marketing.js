@@ -7,6 +7,8 @@ import Footer from '@/components/footer';
 const Marketing = () => {
     const router = useRouter();
     const [customers, setCustomers] = useState([]);
+    const [clusters, setClusters] = useState([]);
+    const [selectedCluster, setSelectedCluster] = useState([]);
     const [subscribers, setSubscribers] = useState([]);
     const [selectedCustomers, setSelectedCustomers] = useState([]);
     const [subject, setSubject] = useState('');
@@ -40,6 +42,26 @@ const Marketing = () => {
         fetchCustomers();
     }, [])
 
+    const createClusters = (customersArray, maxPerCluster = 300) => {
+        const clusters = [];
+        for (let i = 0; i < customersArray.length; i += maxPerCluster) {
+            clusters.push({
+                name: `Cluster ${Math.floor(i / maxPerCluster) + 1}`,
+                customers: customersArray.slice(i, i + maxPerCluster),
+            });
+        }
+        return clusters;
+    };
+
+    // Populate clusters when customers array changes
+    useEffect(() => {
+        if (subscribers.length > 0) {
+            const generatedClusters = createClusters(subscribers);
+            setClusters(generatedClusters);
+        }
+    }, [subscribers]);
+
+
     const showCustomers = () => {
         setTabs('customers');
     }
@@ -52,8 +74,8 @@ const Marketing = () => {
         setTabs('subscribers');
     }
 
-    const selectedCustomersMail = async (customer, isChecked)=>{
-        if(isChecked){
+    const selectedCustomersMail = async (customer, isChecked) => {
+        if (isChecked) {
             setSelectedCustomers(prev => [...prev, customer]);
         } else {
             setSelectedCustomers(prev => prev.filter(c => c.email !== customer.email));
@@ -74,7 +96,7 @@ const Marketing = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ selectedCustomers, audience, subject, alignedText })
+            body: JSON.stringify({ selectedCluster, selectedCustomers, audience, subject, alignedText })
         })
         if (response.status === 200) {
             const data = await response.json();
@@ -154,7 +176,7 @@ const Marketing = () => {
                         />
                     </div>
                     <div>
-                        <select value={audience} onChange={(e) => setAudience(e.target.value)} required className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
+                        <select value={audience} onChange={(e) => setAudience(e.target.value)} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200' >
                             <option disabled value={''}>
                                 Select audience
                             </option>
@@ -167,6 +189,18 @@ const Marketing = () => {
                             <option value={'customers'}>
                                 Customers
                             </option>
+                        </select>
+                    </div>
+                    <div>
+                        <select value={selectedCluster} onChange={(e) => setSelectedCluster(clusters[e.target.value]?.customers || [])} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200 w-[160px] mt-[10px]' >
+                            <option disabled value={''}>
+                                Select Cluster
+                            </option>
+                            {clusters.map((cluster, index) => (
+                                <option key={index} value={index}>
+                                    {cluster.name} ({cluster.customers.length} customers)
+                                </option>
+                            ))}
                         </select>
                     </div>
                     <div className='mt-[10px]'>
@@ -183,7 +217,7 @@ const Marketing = () => {
                  rounded-[10px] flex justify-center items-center flex-col shadow-2xl blurred-background bg-opacity-20 p-4 mb-4'>
                     <p className='border-[1px] border-black rounded-[15px]  text-black bg-[#f8f3eb] text-[15px] w-[160px] text-center mb-[30px]'>Subscribers Details</p>
                     <p className='border-[1px] border-black rounded-[15px] pl-[10px] text-black bg-[#f8f3eb] text-
-                    [15px] w-[250px] mb-[30px]'>Total number of Subscribers {subscribers.length}</p>
+                    [15px] w-[180px] mb-[30px]'>Total Subscribers {subscribers.length}</p>
                     {subscribers.map((customer) => (
                         <li className='w-[100%]' key={customer.email}>
                             <div className=' flex justify-start flex-wrap lg:justify-around'>

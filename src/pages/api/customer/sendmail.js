@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     await connectToDatabase();
 
     if (req.method === 'POST') {
-        const {selectedCustomers, audience, subject, alignedText } = req.body
+        const {selectedCluster, selectedCustomers, audience, subject, alignedText } = req.body
 
         if(audience === 'Selected Audience'){
             for (let i = 0; i < selectedCustomers.length; i++ ){
@@ -64,6 +64,12 @@ export default async function handler(req, res) {
             await sendNotification(subject, alignedText, subcribers[i].name, subcribers[i].email);
         }
         res.status(200).json({ counter });
+        } else if (selectedCluster) {
+            console.log(selectedCluster);
+            for(let i = 0 ; i < selectedCluster.length; i++){
+                await sendNotification(subject, alignedText, selectedCluster[i].name, selectedCluster[i].email);
+            }
+            res.status(200).json({ counter });
         }
         
     } else {
