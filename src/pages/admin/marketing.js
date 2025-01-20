@@ -8,7 +8,7 @@ const Marketing = () => {
     const router = useRouter();
     const [customers, setCustomers] = useState([]);
     const [clusters, setClusters] = useState([]);
-    const [selectedCluster, setSelectedCluster] = useState([]);
+    const [selectedCluster, setSelectedCluster] = useState(null);
     const [subscribers, setSubscribers] = useState([]);
     const [selectedCustomers, setSelectedCustomers] = useState([]);
     const [subject, setSubject] = useState('');
@@ -52,6 +52,17 @@ const Marketing = () => {
         }
         return clusters;
     };
+
+    const handleClusterSelect = (e) => {
+        const selectedIndex = e.target.value;
+        setSelectedCluster(selectedIndex);  // Set the index of the selected cluster
+    };
+
+    const handleClusterChange = (e) => {
+        const selectedIndex = e.target.value;
+        setSelectedCluster(clusters[selectedIndex].customers);  // Select the customers from that cluster
+    };
+
 
     // Populate clusters when customers array changes
     useEffect(() => {
@@ -192,7 +203,7 @@ const Marketing = () => {
                         </select>
                     </div>
                     <div>
-                        <select value={selectedCluster} onChange={(e) => setSelectedCluster(clusters[e.target.value]?.customers || [])} className='h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200 w-[160px] mt-[10px]' >
+                        <select value={selectedCluster !== null ? selectedCluster : ''} onChange={handleClusterSelect} className="h-[39px] bg-white rounded-[5px] border-[2px] border-gray-200 w-[160px] mt-[10px]" >
                             <option disabled value={''}>
                                 Select Cluster
                             </option>
