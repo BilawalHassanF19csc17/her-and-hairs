@@ -51,7 +51,6 @@ const Productlunch = () => {
                             <option value='https://herandhair.com'>Kenya</option>
                             <option value='https://herandhair.com'>Indonesia</option>
                             <option value='https://herandhair.com'>Italy</option>
-                            <option value='https://herandhair.com'>India</option>
                             <option value='https://my.shp.ee/v8XY1tR'>Malaysia</option>
                             <option value='https://herandhair.com'>Netherlands</option>
                             <option value='https://herandhair.com'>Norway</option>
