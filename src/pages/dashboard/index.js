@@ -30,7 +30,7 @@ const Index = () => {
       }
       const dataPending = await responsePending.json();
 
-      if (dataPending.length > 0) {
+      if (dataPending.length > 0) { 
         const formattedDataPending = dataPending.map(item => ({
           ...item,
           formattedCreatedAt: new Date(item.date).toLocaleString('en-US', {
